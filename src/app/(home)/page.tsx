@@ -80,11 +80,15 @@ export default function Home() {
   // });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 3000);
+    const storedUser = localStorage.getItem("userInfo");
+    let timer: any;
+    if (!storedUser) {
+      timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 3000);
+    }
     return () => {
-      clearTimeout(timer);
+      if (!storedUser) clearTimeout(timer);
     };
   }, []);
 
