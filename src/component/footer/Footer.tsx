@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -15,30 +16,18 @@ const Footer = () => {
           <span className="text-xs text-[#9CA3AF]">Version 1.0.0</span>
         </div>
         <div className="flex space-x-6">
-          <a
-            href="#"
+          <Link
+            href="/register"
             className="text-xs text-[#9CA3AF] hover:text-white cursor-pointer"
           >
-            Support
-          </a>
-          <a
-            href="#"
+            Register
+          </Link>
+          <Link
+            href="/documentation"
             className="text-xs text-[#9CA3AF] hover:text-white cursor-pointer"
           >
             Documentation
-          </a>
-          {/* <a
-            href="#"
-            className="text-xs text-[#9CA3AF] hover:text-white cursor-pointer"
-          >
-            API
-          </a> */}
-          {/* <a
-            href="#"
-            className="text-xs text-[#9CA3AF] hover:text-white cursor-pointer"
-          >
-            Contact
-          </a> */}
+          </Link>
         </div>
         <div className="mt-4 md:mt-0">
           <p className="text-xs text-[#9CA3AF]">
