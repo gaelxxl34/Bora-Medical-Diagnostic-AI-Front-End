@@ -26,12 +26,12 @@ const Navbar = () => {
             Documentation
           </Link>
 
-          <Link
+          {/* <Link
             href="/register"
-            className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-4 py-1 !rounded-button whitespace-nowrap cursor-pointer"
+            className="px-4 py-0.5 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none cursor-pointer"
           >
             Register
-          </Link>
+          </Link> */}
         </nav>
         <button className="md:hidden text-white">
           <Image
