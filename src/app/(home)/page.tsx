@@ -81,8 +81,8 @@ export default function Home() {
 
   useEffect(() => {
     // Si l'utilisateur n'est pas identifié, active le formulaire
-
     const storedUser = localStorage.getItem("userInfo");
+
     let timer: any;
     if (!storedUser) {
       timer = setTimeout(() => {
