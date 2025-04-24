@@ -94,9 +94,16 @@ const WaitListForm = ({ isOpen, setIsOpen }: Props) => {
         await new Promise((resolve) => setTimeout(resolve, 1500));
         // Success
         setIsSuccess(true);
+        // Convert FormData to an object
+        const formObject = {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          gender: formData.gender,
+          profession: formData.profession,
+          email: formData.email,
+        };
 
-        const userData = FormData;
-        localStorage.setItem("userInfo", JSON.stringify(userData));
+        localStorage.setItem("userInfo", JSON.stringify(formObject));
 
         // Close modal after success message
         setTimeout(() => {
