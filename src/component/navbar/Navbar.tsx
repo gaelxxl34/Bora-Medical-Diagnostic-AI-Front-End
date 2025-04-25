@@ -32,6 +32,7 @@ const Navbar = () => {
             Register
           </Link> */}
         </nav>
+
         <button className="md:hidden text-white">
           <Image
             src="menu.svg"
@@ -41,6 +42,20 @@ const Navbar = () => {
             className="cursor-pointer"
           />
         </button>
+      </div>
+
+      <div className="md:hidden absolute top-[64px] left-0 right-0 bg-[#1F2937] border-b border-[#374151] z-50">
+        <div className="flex flex-col p-4 space-y-4">
+          <a href="#" className="text-white hover:text-[#3B82F6] transition">
+            Home
+          </a>
+          <a href="#" className="text-[#9CA3AF] hover:text-white transition">
+            Documentation
+          </a>
+          <button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-4 py-2 rounded-lg w-full !rounded-button whitespace-nowrap">
+            Sign Up
+          </button>
+        </div>
       </div>
     </header>
   );
