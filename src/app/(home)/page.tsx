@@ -4,12 +4,6 @@ import WaitListForm from "@/component/waitListForm";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Home page | Bora AI Medical Diagnostic",
-  description:
-    "Bora AI Medical Diagnostic is an advanced artificial intelligence platform designed to assist healthcare professionals in diagnosing medical conditions with high accuracy",
-};
-
 export default function Home() {
   const [message, setMessage] = useState<string>("");
   const [videoPreview, setVideoPreview] = useState<string | null>(null);
