@@ -213,7 +213,7 @@ export default function Home() {
                   className="bg-[#111827] hover:bg-[#374151] text-white p-2 rounded-lg flex items-center space-x-2 cursor-pointer !rounded-button whitespace-nowrap"
                 >
                   <Image src="camera.svg" alt="" width={25} height={20} />
-                  <span>Upload Video</span>
+                  <span className="hidden sm:inline">Upload Video</span>
                 </button>
                 <input
                   type="file"
@@ -228,7 +228,7 @@ export default function Home() {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={handleClear}
-                  className="bg-[#111827] hover:bg-[#374151] text-white px-4 py-2 rounded-lg cursor-pointer !rounded-button whitespace-nowrap"
+                  className="hidden sm:inline bg-[#111827] hover:bg-[#374151] text-white px-4 py-2 rounded-lg cursor-pointer !rounded-button whitespace-nowrap"
                 >
                   Clear
                 </button>
