@@ -16,12 +16,12 @@ const Footer = () => {
           <span className="text-xs text-[#9CA3AF]">Version 1.0.0</span>
         </div>
         <div className="flex space-x-6">
-          <Link
+          {/* <Link
             href="/register"
             className="text-xs text-[#9CA3AF] hover:text-white cursor-pointer"
           >
             Register
-          </Link>
+          </Link> */}
           <Link
             href="/documentation"
             className="text-xs text-[#9CA3AF] hover:text-white cursor-pointer"

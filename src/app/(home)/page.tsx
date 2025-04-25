@@ -1,7 +1,6 @@
 "use client";
-import WaitListForm from "@/component/WaitListForm";
 import { Metadata } from "next";
-// import WaitListForm from "@/component/waitListForm";
+import WaitListForm from "@/component/waitListForm";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
