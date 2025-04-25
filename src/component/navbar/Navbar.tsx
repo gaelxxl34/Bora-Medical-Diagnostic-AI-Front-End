@@ -1,8 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+
+  const closeMenu = () => setIsMobileMenuOpen(false);
   return (
     <header className="border-b border-[#1F2937] py-4 px-6">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -33,7 +37,12 @@ const Navbar = () => {
           </Link> */}
         </nav>
 
-        <button className="md:hidden text-white">
+        <button
+          className="md:hidden text-white"
+          onClick={() => {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+          }}
+        >
           <Image
             src="menu.svg"
             alt=""
@@ -44,19 +53,31 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className="md:hidden absolute top-[64px] left-0 right-0 bg-[#1F2937] border-b border-[#374151] z-50">
-        <div className="flex flex-col p-4 space-y-4">
-          <a href="#" className="text-white hover:text-[#3B82F6] transition">
-            Home
-          </a>
-          <a href="#" className="text-[#9CA3AF] hover:text-white transition">
-            Documentation
-          </a>
-          <button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-4 py-2 rounded-lg w-full !rounded-button whitespace-nowrap">
-            Sign Up
-          </button>
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-[64px] left-0 right-0 bg-[#1F2937] border-b border-[#374151] z-50">
+          <div className="flex flex-col p-4 space-y-4">
+            <Link
+              href="/"
+              className="text-white hover:text-[#3B82F6] transition"
+            >
+              <span onClick={closeMenu} className="block p-2">
+                Home
+              </span>
+            </Link>
+            <Link
+              href="/documentation"
+              className="text-[#9CA3AF] hover:text-white transition"
+            >
+              <span onClick={closeMenu} className="block p-2">
+                Documentation
+              </span>
+            </Link>
+            <button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-4 py-2 rounded-lg w-full !rounded-button whitespace-nowrap">
+              Get started
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };
