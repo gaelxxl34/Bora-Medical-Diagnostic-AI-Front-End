@@ -1,5 +1,12 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Documentation | Bora AI Medical Diagnostic",
+  description:
+    " By leveraging machine learning and data analysis, it analyzes medical videos, patient data, and historical records to provide timely, reliable diagnostic insights, helping to enhance decision-making and improve patient outcomes",
+};
 
 const page = () => {
   return (
