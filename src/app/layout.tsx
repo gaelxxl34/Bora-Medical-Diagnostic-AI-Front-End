@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bora AI Medical Diagnostic",
-  description: "Created by BORA Technology",
+  title: "Home page | Bora AI Medical Diagnostic",
+  description:
+    "Bora AI Medical Diagnostic is an advanced artificial intelligence platform designed to assist healthcare professionals in diagnosing medical conditions with high accuracy",
 };
 
 export default function RootLayout({
