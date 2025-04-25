@@ -6,7 +6,7 @@ type Props = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const WaitListForm = ({ isOpen, setIsOpen }: Props) => {
+const WaitListForm = ({ setIsOpen }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [isSuccess, setIsSuccess] = useState(false);
@@ -156,8 +156,8 @@ const WaitListForm = ({ isOpen, setIsOpen }: Props) => {
                 Thank You!
               </h3>
               <p className="text-[#9CA3AF]">
-                You've been added to our waiting list. We'll notify you when we
-                launch!
+                {`You've been added to our waiting list. We'll notify you when we
+                launch!`}
               </p>
             </div>
           ) : (
