@@ -1,5 +1,4 @@
 "use client";
-import { Metadata } from "next";
 import WaitListForm from "@/component/waitListForm";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -83,7 +82,7 @@ export default function Home() {
     // Si l'utilisateur n'est pas identifié, active le formulaire
     const storedUser = localStorage.getItem("userInfo");
 
-    let timer: any;
+    let timer: ReturnType<typeof setTimeout>;
     if (!storedUser) {
       timer = setTimeout(() => {
         setIsOpen(true);
