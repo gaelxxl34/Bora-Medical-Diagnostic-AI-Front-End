@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: "Home page | Bora AI Medical Diagnostic",
   description:
     "Bora AI Medical Diagnostic is an advanced artificial intelligence platform designed to assist healthcare professionals in diagnosing medical conditions with high accuracy",
+  icons: {
+    icon: "https://example.com/icon.png",
+    apple: "https://example.com/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
