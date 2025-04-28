@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center g-1">
           <Image src="brain.svg" width={25} height={55} alt="" />
-          <i className="fas fa-brain text-[#3B82F6] text-2xl mr-3"></i>
+          {/* <i className="fas fa-brain text-[#3B82F6] text-2xl mr-3"></i> */}
           <h1 className="text-xl font-semibold">BoraAI Diagnostics</h1>
         </div>
         <nav className="hidden md:flex space-x-6 items-center">

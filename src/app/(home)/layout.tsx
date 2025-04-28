@@ -1,13 +1,44 @@
+"use client";
 import Footer from "@/component/footer/Footer";
-import Navbar from "@/component/navbar/Navbar";
-import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   children: React.ReactNode;
 };
 const layout = ({ children }: Props) => {
+  const [activeSection, setActiveSection] = useState("hero");
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+          current = section.getAttribute("id") || "";
+        }
+      });
+      if (current && current !== activeSection) {
+        setActiveSection(current);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#0D1117] text-white flex flex-col justify-between relative">
+    <div className="min-h-screen bg-[#3b4451] text-white flex flex-col justify-between relative">
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -30,7 +61,133 @@ const layout = ({ children }: Props) => {
           pointerEvents: "none",
         }}
       ></div>
-      <Navbar />
+
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-[#1F2937] shadow-md">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <Image src="brain.svg" width={25} height={55} alt="" />
+            <span className="text-xl font-bold">Bora AI</span>
+          </div>
+          <div className="hidden md:flex space-x-8">
+            <a
+              href="#"
+              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
+            >
+              Documentation
+            </a>
+            <a
+              href="#"
+              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
+            >
+              Register
+            </a>
+            <Link
+              href="/register"
+              className="px-4 py-0.5 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none cursor-pointer"
+            >
+              Get Started
+            </Link>
+          </div>
+          <div className="md:hidden cursor-pointer">
+            <i className="fas fa-bars text-2xl"></i>
+          </div>
+        </div>
+      </nav>
+      {/* <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-90 shadow-md z-50">
+        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+          <div className="flex items-center">
+            <i className="fas fa-microchip text-3xl text-indigo-600 mr-2"></i>
+            <span className="text-xl font-bold text-gray-800">
+              TechSolutions
+            </span>
+          </div>
+          <div className="hidden md:flex space-x-8">
+            {["hero", "web", "mobile", "agriculture"].map((section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className={`${
+                  activeSection === section
+                    ? "text-indigo-600 font-semibold"
+                    : "text-gray-600"
+                } hover:text-indigo-500 transition-colors duration-300 cursor-pointer !rounded-button whitespace-nowrap`}
+              >
+                {section === "hero"
+                  ? "Home"
+                  : section === "web"
+                  ? "Web Development"
+                  : section === "mobile"
+                  ? "Mobile & Embedded"
+                  : "AgriTech"}
+              </button>
+            ))}
+          </div>
+          <button className="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-300 cursor-pointer !rounded-button whitespace-nowrap">
+            Get started
+          </button>
+        </div>
+      </nav> */}
+      {/* Hero Section */}
+      <section
+        id="hero"
+        className="pt-24 pb-20 min-h-screen flex items-center relative overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 z-0 blur-3xl"
+          style={{
+            // backgroundColor: "#f1f8e9",
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238bc34a' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        {/* <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d1d5db' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: "20px 20px",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/70" />
+        </div> */}
+        <div className="container mx-auto px-[140px] z-10 flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white-900 leading-tight mb-6">
+              Technology Solutions for Tomorrow
+            </h1>
+            <p className="text-lg md:text-xl text-white-100 mb-8 max-w-lg mx-auto md:mx-0">
+              Comprehensive technology services for businesses looking to
+              innovate and transform in the digital age. From web to embedded
+              systems and agricultural tech.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+              <button
+                onClick={() => scrollToSection("web")}
+                className="bg-indigo-600 text-white px-8 py-3 rounded-md hover:bg-indigo-700 transition-colors duration-300 shadow-lg cursor-pointer !rounded-button whitespace-nowrap"
+              >
+                Explore Our Services
+              </button>
+              <button className="bg-transparent border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-md hover:bg-indigo-50 transition-colors duration-300 cursor-pointer !rounded-button whitespace-nowrap">
+                Learn More
+              </button>
+            </div>
+          </div>
+          <div className="md:w-1/2">
+            <img
+              src="https://readdy.ai/api/search-image?query=futuristic%20technology%20concept%20with%20digital%20interfaces%20and%20holographic%20displays%2C%20clean%20modern%20design%20with%20blue%20and%20purple%20glowing%20elements%2C%20professional%20high-tech%20visualization%20in%20a%20minimalist%20style%20with%20abstract%20geometric%20shapes%20and%20data%20visualization&width=600&height=500&seq=1&orientation=landscape"
+              alt="Technology Solutions"
+              className="rounded-lg shadow-2xl object-cover object-top w-full h-auto"
+            />
+          </div>
+        </div>
+      </section>
       {children}
       <Footer />
     </div>
