@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const InformationCard = () => {
@@ -51,7 +52,14 @@ const InformationCard = () => {
               href="#"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
-              Learn more <i className="fas fa-arrow-right ml-2"></i>
+              Learn more{" "}
+              <Image
+                src="arrow_right_blue.svg"
+                alt="arrow"
+                height={15}
+                width={15}
+                className="ml-1"
+              />
             </a>
           </div>
           <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
@@ -69,7 +77,14 @@ const InformationCard = () => {
               href="#"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
-              Learn more <i className="fas fa-arrow-right ml-2"></i>
+              Learn more{" "}
+              <Image
+                src="arrow_right_blue.svg"
+                alt="arrow"
+                height={15}
+                width={15}
+                className="ml-1"
+              />
             </a>
           </div>
           <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
@@ -85,7 +100,14 @@ const InformationCard = () => {
               href="#"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
-              Learn more <i className="fas fa-arrow-right ml-2"></i>
+              Learn more{" "}
+              <Image
+                src="arrow_right_blue.svg"
+                alt="arrow"
+                height={15}
+                width={15}
+                className="ml-1"
+              />
             </a>
           </div>
           <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
@@ -103,7 +125,14 @@ const InformationCard = () => {
               href="#"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
-              Learn more <i className="fas fa-arrow-right ml-2"></i>
+              Learn more{" "}
+              <Image
+                src="arrow_right_blue.svg"
+                alt="arrow"
+                height={15}
+                width={15}
+                className="ml-1"
+              />
             </a>
           </div>
         </div>
