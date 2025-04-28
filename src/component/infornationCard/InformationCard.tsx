@@ -27,10 +27,10 @@ const InformationCard = () => {
       ></div>
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
             Everything you need to succeed
           </h2>
-          <p className="text-[#9CA3AF] max-w-2xl mx-auto">
+          <p className="text-sm sm-base text-[#9CA3AF] max-w-2xl mx-auto">
             We provide all the tools and support to help your medical
             diagnostics business thrive
           </p>
@@ -40,8 +40,10 @@ const InformationCard = () => {
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-dna text-4xl"></i>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Genetic Analysis</h3>
-            <p className="text-[#9CA3AF] mb-4">
+            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
+              Genetic Analysis
+            </h3>
+            <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
               Process genetic data to identify potential risk factors and
               hereditary conditions.
             </p>
@@ -56,8 +58,10 @@ const InformationCard = () => {
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-microscope text-4xl"></i>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Pathology Imaging</h3>
-            <p className="text-[#9CA3AF] mb-4">
+            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
+              Pathology Imaging
+            </h3>
+            <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
               Analyze pathology slides and medical imaging with precision beyond
               human capability.
             </p>
@@ -72,8 +76,10 @@ const InformationCard = () => {
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-heartbeat text-4xl"></i>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Vital Monitoring</h3>
-            <p className="text-[#9CA3AF] mb-4">
+            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
+              Vital Monitoring
+            </h3>
+            <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
               Continuous analysis of patient vitals to detect subtle changes and
               predict complications.
             </p>
@@ -88,10 +94,10 @@ const InformationCard = () => {
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-pills text-4xl"></i>
             </div>
-            <h3 className="text-xl font-semibold mb-3">
+            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
               Treatment Optimization
             </h3>
-            <p className="text-[#9CA3AF] mb-4">
+            <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
               Personalized treatment recommendations based on patient-specific
               data and outcomes.
             </p>
