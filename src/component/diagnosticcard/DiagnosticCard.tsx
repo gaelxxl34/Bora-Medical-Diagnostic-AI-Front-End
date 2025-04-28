@@ -21,10 +21,12 @@ const DiagnosticCard = () => {
       >
         <div className="absolute inset-0 bg-black/70" />
       </div>
-      <div className="container mx-auto px-20 relative z-10 ">
+      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10 ">
         <div className="text-left mb-12">
-          <h2 className="text-3xl font-bold mb-4">Diagnostic Capabilities</h2>
-          <p className=" text-[#9CA3AF] max-w-2xl">
+          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+            Diagnostic Capabilities
+          </h2>
+          <p className="text-sm sm:text-base text-[#9CA3AF] max-w-2xl">
             Our AI system can detect and analyze various neurological conditions
             with high accuracy.
           </p>
@@ -32,7 +34,7 @@ const DiagnosticCard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {diagnosticImages.map((data, i) => (
             <div
-              className="bg-[#0D1117] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-blue-300/10 transition-transform duration-300 ease-in-out hover:scale-102"
+              className="bg-[#0D1117] rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-blue-300/10 transition-transform duration-300 ease-in-out hover:scale-102"
               key={i}
             >
               <div className="h-48 overflow-hidden">
@@ -43,9 +45,13 @@ const DiagnosticCard = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3">{data.caption}</h3>
-                <p className="text-[#9CA3AF] mb-4">{data.desription}</p>
-                <button className="bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
+                <h3 className="text-xl sm:text-3xl font-semibold mb-3">
+                  {data.caption}
+                </h3>
+                <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
+                  {data.desription}
+                </p>
+                <button className="text-sm sm:text-lg  bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
                   view detail
                 </button>
               </div>
