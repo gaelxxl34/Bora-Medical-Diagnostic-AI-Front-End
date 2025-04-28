@@ -33,11 +33,13 @@ const NewsLetter = () => {
       />
       <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
       {/* Dark Overlay */}
-      <div className="container mx-auto px-6 relative z-50 bg-transparent">
-        <div className="bg-transparent rounded-2xl p-8 md:p-12 shadow-xl max-w-4xl mx-auto ">
+      <div className="container mx-auto px-6 md:px-10 relative z-20 bg-transparent">
+        <div className="bg-transparent rounded-2xl md:p-12 shadow-xl max-w-4xl mx-auto ">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-[#9CA3AF] max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+              Stay Updated
+            </h2>
+            <p className="text-sm sm:text-base text-[#9CA3AF] max-w-2xl mx-auto">
               Subscribe to our newsletter to receive the latest updates on AI
               medical diagnostics technology and research breakthroughs.
             </p>
@@ -74,9 +76,10 @@ const NewsLetter = () => {
                   </p>
                 )}
               </div>
+
               <button
                 type="submit"
-                className="bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer"
+                className="text-sm sm:text-md bg-[#3B82F6] hover:bg-blue-600 px-4 py-3 rounded-lg font-medium transition-colors shadow-xl !rounded-button whitespace-nowrap cursor-pointer"
               >
                 Subscribe
               </button>
