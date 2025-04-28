@@ -13,7 +13,6 @@ import Footer from "@/component/footer/Footer";
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState("hero");
-  const currentYear: number = new Date().getFullYear();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,7 +106,7 @@ const Home = () => {
         </div>
         <div className="container mx-auto px-[50px] py-10 sm:py-6 lg:py-24 flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 md:pr-10 z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
               Welcome to Bora AI Medical Diagnostics
             </h1>
             <p className="text-xl text-[#9CA3AF] mb-8 max-w-lg">
@@ -116,15 +115,15 @@ const Home = () => {
               personalized treatment recommendations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
+              <button className="text-sm sm:text-lg bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
                 Start for free now
               </button>
-              <button className="bg-transparent border border-[#3B82F6] px-8 py-3 rounded-lg font-medium transition-colors hover:bg-[#3B82F6]/10 !rounded-button whitespace-nowrap cursor-pointer">
+              <button className="text-sm sm:text-lg bg-transparent border border-[#3B82F6] px-8 py-3 rounded-lg font-medium transition-colors hover:bg-[#3B82F6]/10 !rounded-button whitespace-nowrap cursor-pointer">
                 Learn More
               </button>
             </div>
           </div>
-          <div className="hidden md:w-1/3 mt-12 md:mt-0">
+          <div className="hidden md:w-1/3 md:block mt-12 md:mt-0">
             <div className="relative">
               <Swiper
                 modules={[Pagination, Autoplay]}
@@ -207,7 +206,7 @@ const Home = () => {
           }}
         ></div>
         <div className="container mx-auto px-6 sm:px-1 text-center">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-6">
             Ready to Transform Medical Diagnostics?
           </h2>
           <p className="text-sm sm:text-base text-[#9CA3AF] max-w-2xl mx-auto mb-10">

@@ -36,7 +36,7 @@ const NewsLetter = () => {
       <div className="container mx-auto px-6 md:px-10 relative z-20 bg-transparent">
         <div className="bg-transparent rounded-2xl md:p-12 shadow-xl max-w-4xl mx-auto ">
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4">
               Stay Updated
             </h2>
             <p className="text-sm sm:text-base text-[#9CA3AF] max-w-2xl mx-auto">

@@ -27,7 +27,7 @@ const InformationCard = () => {
       ></div>
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4">
             Everything you need to succeed
           </h2>
           <p className="text-sm sm-base text-[#9CA3AF] max-w-2xl mx-auto">
@@ -35,12 +35,12 @@ const InformationCard = () => {
             diagnostics business thrive
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-[#1F2937]/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-dna text-4xl"></i>
             </div>
-            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
+            <h3 className="text-xl sm:text-xl font-semibold mb-3">
               Genetic Analysis
             </h3>
             <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
@@ -58,7 +58,7 @@ const InformationCard = () => {
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-microscope text-4xl"></i>
             </div>
-            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
+            <h3 className="text-xl sm:text-xl font-semibold mb-3">
               Pathology Imaging
             </h3>
             <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
@@ -76,9 +76,7 @@ const InformationCard = () => {
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-heartbeat text-4xl"></i>
             </div>
-            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
-              Vital Monitoring
-            </h3>
+            <h3 className="text-xl font-semibold mb-3">Vital Monitoring</h3>
             <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
               Continuous analysis of patient vitals to detect subtle changes and
               predict complications.
@@ -94,7 +92,7 @@ const InformationCard = () => {
             <div className="text-[#3B82F6] mb-4">
               <i className="fas fa-pills text-4xl"></i>
             </div>
-            <h3 className="text-xl sm:text-3xl font-semibold mb-3">
+            <h3 className="text-xl font-semibold mb-3">
               Treatment Optimization
             </h3>
             <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">

@@ -23,7 +23,7 @@ const DiagnosticCard = () => {
       </div>
       <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10 ">
         <div className="text-left mb-12">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4">
             Diagnostic Capabilities
           </h2>
           <p className="text-sm sm:text-base text-[#9CA3AF] max-w-2xl">
@@ -45,9 +45,7 @@ const DiagnosticCard = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl sm:text-3xl font-semibold mb-3">
-                  {data.caption}
-                </h3>
+                <h3 className="text-xl font-semibold mb-3">{data.caption}</h3>
                 <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
                   {data.desription}
                 </p>
