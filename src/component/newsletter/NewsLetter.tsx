@@ -20,9 +20,17 @@ const NewsLetter = () => {
     }
   };
   return (
-    <div className="relative overflow-hidden bg-[#0D1117] py-16 ">
-      <div className="container mx-auto px-6">
-        <div className="bg-[#0D1117] rounded-2xl p-8 md:p-12 shadow-xl max-w-4xl mx-auto ">
+    <div className="relative overflow-hidden py-16 bg-transparent">
+      <div
+        className="absolute inset-0 bg-cover bg-center z-1 filter blur-[140px]"
+        style={{
+          backgroundImage: `url("bg3.png")`,
+        }}
+      />
+      <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
+      {/* Dark Overlay */}
+      <div className="container mx-auto px-6 relative z-50 bg-transparent">
+        <div className="bg-transparent rounded-2xl p-8 md:p-12 shadow-xl max-w-4xl mx-auto ">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
             <p className="text-[#9CA3AF] max-w-2xl mx-auto">
