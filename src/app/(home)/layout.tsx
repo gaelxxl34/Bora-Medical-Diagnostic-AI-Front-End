@@ -6,6 +6,9 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import NewsLetter from "@/component/newsletter/NewsLetter";
+import DiagnosticCard from "@/component/diagnosticcard/DiagnosticCard";
+import InformationCard from "@/component/infornationCard/InformationCard";
 
 type Props = {
   children: React.ReactNode;
@@ -43,7 +46,7 @@ const layout = ({ children }: Props) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#3b4451] text-white flex flex-col justify-between relative">
+    <div className="min-h-screen text-white flex flex-col justify-between relative">
       {/* <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -68,7 +71,7 @@ const layout = ({ children }: Props) => {
       ></div> */}
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-[#1F2937] shadow-md">
+      <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 bg-transparent backdrop-blur-md shadow-md">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image src="brain.svg" width={25} height={55} alt="" />
@@ -105,43 +108,15 @@ const layout = ({ children }: Props) => {
           </div>
         </div>
       </nav>
-      {/* <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-90 shadow-md z-50">
-        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-          <div className="flex items-center">
-            <i className="fas fa-microchip text-3xl text-indigo-600 mr-2"></i>
-            <span className="text-xl font-bold text-gray-800">
-              TechSolutions
-            </span>
-          </div>
-          <div className="hidden md:flex space-x-8">
-            {["hero", "web", "mobile", "agriculture"].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`${
-                  activeSection === section
-                    ? "text-indigo-600 font-semibold"
-                    : "text-gray-600"
-                } hover:text-indigo-500 transition-colors duration-300 cursor-pointer !rounded-button whitespace-nowrap`}
-              >
-                {section === "hero"
-                  ? "Home"
-                  : section === "web"
-                  ? "Web Development"
-                  : section === "mobile"
-                  ? "Mobile & Embedded"
-                  : "AgriTech"}
-              </button>
-            ))}
-          </div>
-          <button className="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-300 cursor-pointer !rounded-button whitespace-nowrap">
-            Get started
-          </button>
-        </div>
-      </nav> */}
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{
+            backgroundImage: `url("bg1.png")`,
+          }}
+        />{" "}
         <div
           className="absolute inset-0 z-0 blur-3xl"
           style={{
@@ -171,7 +146,7 @@ const layout = ({ children }: Props) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
-                Get Started
+                Start for free now
               </button>
               <button className="bg-transparent border border-[#3B82F6] px-8 py-3 rounded-lg font-medium transition-colors hover:bg-[#3B82F6]/10 !rounded-button whitespace-nowrap cursor-pointer">
                 Learn More
@@ -191,6 +166,13 @@ const layout = ({ children }: Props) => {
                   <img
                     src="https://readdy.ai/api/search-image?query=Advanced%20medical%20AI%20interface%20showing%20brain%20scan%20analysis%20with%203D%20neural%20network%20visualization%2C%20futuristic%20holographic%20displays%20with%20medical%20data%2C%20clean%20modern%20medical%20technology%20on%20dark%20background&width=600&height=500&seq=8&orientation=landscape"
                     alt="AI Brain Analysis"
+                    className="w-[400px] h-[400px] object-cover object-top"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src="https://readdy.ai/api/search-image?query=Alzheimers%20disease%20brain%20scan%20with%20molecular%20view%20showing%20protein%20aggregates%2C%20neural%20degeneration%2C%20detailed%203D%20visualization%20of%20brain%20pathology%2C%20medical%20diagnostic%20imaging%20on%20dark%20background%20with%20blue%20highlights&width=400&height=300&seq=2&orientation=landscape"
+                    alt="Alzheimer's Disease"
                     className="w-[400px] h-[400px] object-cover object-top"
                   />
                 </SwiperSlide>
@@ -220,7 +202,15 @@ const layout = ({ children }: Props) => {
           </div>
         </div>
       </div>
-      {children}
+      {/* {children} */}
+
+      {/* Information Cards Section */}
+      <InformationCard />
+      {/* Diagnostic Results Grid */}
+      <DiagnosticCard />
+      {/* Newsletter Subscription */}
+      <NewsLetter />
+
       {/* Get Started Section */}
       <div className="bg-gradient-to-b from-[#1F2937] to-[#0D1117] py-20 relative">
         <div
