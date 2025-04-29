@@ -25,4 +25,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.bg-animated {
+  animation: moveBackground 10s linear infinite;
+}
+
 
