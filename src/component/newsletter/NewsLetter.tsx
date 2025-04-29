@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const NewsLetter = () => {
@@ -14,6 +15,9 @@ const NewsLetter = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailRegex.test(email)) {
       setIsSubscribed(true);
+      setTimeout(() => {
+        setIsSubscribed(false);
+      }, 3000);
       setEmail("");
     } else {
       setIsEmailValid(false);
@@ -39,8 +43,14 @@ const NewsLetter = () => {
             </p>
           </div>
           {isSubscribed ? (
-            <div className="bg-green-900/20 border border-green-500 text-green-300 p-4 rounded-lg text-center">
-              <i className="fas fa-check-circle mr-2"></i>
+            <div className="flex flex-col items-center bg-green-900/20 border border-green-500 text-green-300 p-4 rounded-lg">
+              <Image
+                src="correct_green.svg"
+                width={25}
+                height={25}
+                alt=""
+                className="text-center"
+              />
               Thank you for subscribing! You'll receive our updates soon.
             </div>
           ) : (
