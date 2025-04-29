@@ -51,7 +51,7 @@ const NewsLetter = () => {
                 alt=""
                 className="text-center"
               />
-              Thank you for subscribing! You'll receive our updates soon.
+              {`Thank you for subscribing! You'll receive our updates soon.`}
             </div>
           ) : (
             <form
