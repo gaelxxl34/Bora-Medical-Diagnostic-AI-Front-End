@@ -10,10 +10,7 @@ import NewsLetter from "@/component/newsletter/NewsLetter";
 import DiagnosticCard from "@/component/diagnosticcard/DiagnosticCard";
 import InformationCard from "@/component/infornationCard/InformationCard";
 
-type Props = {
-  children: React.ReactNode;
-};
-const layout = ({ children }: Props) => {
+const Home = () => {
   const [activeSection, setActiveSection] = useState("hero");
   const currentYear: number = new Date().getFullYear();
 
@@ -23,7 +20,6 @@ const layout = ({ children }: Props) => {
       let current = "";
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (window.scrollY >= sectionTop - 200) {
           current = section.getAttribute("id") || "";
         }
@@ -35,20 +31,11 @@ const layout = ({ children }: Props) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection]);
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <div className="min-h-screen text-white flex flex-col justify-between relative">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 bg-transparent backdrop-blur-md shadow-md">
+      <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 backdrop-blur-md shadow-md">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image src="brain.svg" width={25} height={55} alt="" />
@@ -398,4 +385,4 @@ const layout = ({ children }: Props) => {
   );
 };
 
-export default layout;
+export default Home;
