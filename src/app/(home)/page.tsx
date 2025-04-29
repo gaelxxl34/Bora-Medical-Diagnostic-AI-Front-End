@@ -1,272 +1,401 @@
 "use client";
-import WaitListForm from "@/component/waitListForm";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import NewsLetter from "@/component/newsletter/NewsLetter";
+import DiagnosticCard from "@/component/diagnosticcard/DiagnosticCard";
+import InformationCard from "@/component/infornationCard/InformationCard";
 
-export default function Home() {
-  const [message, setMessage] = useState<string>("");
-  const [videoPreview, setVideoPreview] = useState<string | null>(null);
-  const [isUploading, setIsUploading] = useState<boolean>(false);
-  const [uploadProgress, setUploadProgress] = useState<number>(0);
-  const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMessage(e.target.value);
-  };
-
-  const triggerFileUpload = () => {
-    fileInputRef.current?.click();
-  };
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    // Check if file is a video
-    if (!file.type.startsWith("video/")) {
-      alert("Please upload a video file");
-      return;
-    }
-
-    setIsUploading(true);
-
-    // Simulate upload progress
-    const interval = setInterval(() => {
-      setUploadProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsUploading(false);
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 300);
-
-    // Create preview URL
-    const previewUrl = URL.createObjectURL(file);
-    setVideoPreview(previewUrl);
-  };
-
-  const handleAnalyze = () => {
-    if (!message && !videoPreview) {
-      alert("Please enter symptoms or upload a video for analysis");
-      return;
-    }
-
-    setIsAnalyzing(true);
-
-    // Simulate analysis process
-    setTimeout(() => {
-      setIsAnalyzing(false);
-      // Here you would typically handle the response from the AI
-    }, 3000);
-  };
-
-  const handleClear = () => {
-    setMessage("");
-    setVideoPreview(null);
-    setUploadProgress(0);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
-
-  // const currentDate = new Date().toLocaleDateString("en-US", {
-  //   year: "numeric",
-  //   month: "long",
-  //   day: "numeric",
-  // });
+type Props = {
+  children: React.ReactNode;
+};
+const layout = ({ children }: Props) => {
+  const [activeSection, setActiveSection] = useState("hero");
+  const currentYear: number = new Date().getFullYear();
 
   useEffect(() => {
-    // Si l'utilisateur n'est pas identifié, active le formulaire
-    const storedUser = localStorage.getItem("userInfo");
-
-    let timer: ReturnType<typeof setTimeout>;
-    if (!storedUser) {
-      timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 3000);
-    }
-    return () => {
-      if (!storedUser) clearTimeout(timer);
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+          current = section.getAttribute("id") || "";
+        }
+      });
+      if (current && current !== activeSection) {
+        setActiveSection(current);
+      }
     };
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
-    <div className="min-h-screen  text-white flex flex-col">
-      {isOpen && <WaitListForm setIsOpen={setIsOpen} isOpen={isOpen} />}
-
-      {/* side page */}
-      <div className="flex-1 flex flex-col md:flex-row">
-        {/* <aside className="w-full md:w-64 bg-[#1F2937] p-4 md:min-h-[calc(100vh-64px)] hidden md:block">
-          <div className="mb-6">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-[#9CA3AF]">System Online</span>
-            </div>
-            <p className="text-xs text-[#9CA3AF]">{currentDate}</p>
+    <div className="min-h-screen text-white flex flex-col justify-between relative">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 bg-transparent backdrop-blur-md shadow-md">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <Image src="brain.svg" width={25} height={55} alt="" />
+            <span className="text-xl font-bold">Bora AI</span>
           </div>
-
-          <div className="mb-6">
-            <h3 className="text-sm font-medium mb-3 text-[#9CA3AF] uppercase">
-              Quick Actions
-            </h3>
-            <ul className="space-y-2">
-              <li className="flex items-center space-x-2 p-2 hover:bg-[#374201] rounded cursor-pointer">
-                <Image src="history.svg" alt="" width={15} height={15} />
-                <span className="text-sm">Recent Analyses</span>
-              </li>
-              <li className="flex items-center space-x-2 p-2 hover:bg-[#374151] rounded cursor-pointer">
-                <Image src="save.svg" alt="" width={15} height={15} />
-                <span className="text-sm">Saved Reports</span>
-              </li>
-              <li className="flex items-center space-x-2 p-2 hover:bg-[#374151] rounded cursor-pointer">
-                <Image src="doctor.svg" alt="" width={15} height={15} />
-                <span className="text-sm">Expert Consultation</span>
-              </li>
-              <li className="flex items-center space-x-2 p-2 hover:bg-[#374151] rounded cursor-pointer">
-                <Image src="chart.svg" alt="" width={15} height={15} />
-                <span className="text-sm">Medical Records</span>
-              </li>
-            </ul>
+          <div className="hidden md:flex space-x-8">
+            <a
+              href="#"
+              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
+            >
+              Documentation
+            </a>
+            <a
+              href="#"
+              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
+            >
+              Register
+            </a>
+            <Link
+              href="/register"
+              className="px-4 py-0.5 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none cursor-pointer"
+            >
+              Get Started
+            </Link>
           </div>
-
-          <div>
-            <h3 className="text-sm font-medium mb-3 text-[#9CA3AF] uppercase">
-              Recent Activity
-            </h3>
-            <div className="space-y-3">
-              <div className="p-2 bg-[#111827] rounded">
-                <p className="text-xs font-medium">Brain Scan Analysis</p>
-                <p className="text-xs text-[#9CA3AF]">Yesterday, 15:30</p>
-              </div>
-              <div className="p-2 bg-[#111827] rounded">
-                <p className="text-xs font-medium">Symptom Evaluation</p>
-                <p className="text-xs text-[#9CA3AF]">Apr 21, 2025</p>
-              </div>
-              <div className="p-2 bg-[#111827] rounded">
-                <p className="text-xs font-medium">Follow-up Diagnosis</p>
-                <p className="text-xs text-[#9CA3AF]">Apr 19, 2025</p>
-              </div>
-            </div>
+          <div className="md:hidden cursor-pointer">
+            <i className="fas fa-bars text-2xl"></i>
           </div>
-        </aside> */}
+        </div>
+      </nav>
 
-        {/* Content Area */}
-        <div className="flex-1 p-4 md:p-8 max-w-4xl mx-auto w-full">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              Welcome to Bora Ai Medical Diagnostics
+      {/* Hero Section */}
+      <div className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0 bg-animated"
+          style={{
+            backgroundImage: `url("bg2.png")`,
+          }}
+        />
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{
+            backgroundImage: `url("bg1.png")`,
+          }}
+        />
+        <div
+          className="absolute inset-0 z-0 blur-3xl"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238bc34a' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d1d5db' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: "20px 20px",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+        <div className="container mx-auto px-[50px] py-10 md:py-24 flex flex-col md:flex-row items-center">
+          <div className="md:w-2/3 md:pr-10 z-10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Welcome to Bora AI Medical Diagnostics
             </h1>
-            <p className="text-[#9CA3AF] max-w-2xl mx-auto">
-              Our advanced AI system analyzes symptoms and brain scan videos to
-              provide preliminary diagnosis of neurological conditions. Describe
-              symptoms or upload a video for analysis.
+            <p className="text-xl text-[#9CA3AF] mb-8 max-w-lg">
+              Revolutionizing healthcare with advanced AI algorithms. Our
+              cutting-edge technology provides accurate diagnostics and
+              personalized treatment recommendations.
             </p>
-          </div>
-
-          <div className="bg-[#1F2937] rounded-xl p-6 mb-6 shadow-lg">
-            <div className="mb-4">
-              <textarea
-                className="w-full bg-[#111827] text-white rounded-xl p-4 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-[#3B82F6] resize-none"
-                placeholder="Describe the symptoms or upload a video for analysis..."
-                value={message}
-                onChange={handleMessageChange}
-              ></textarea>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
+                Start for free now
+              </button>
+              <button className="bg-transparent border border-[#3B82F6] px-8 py-3 rounded-lg font-medium transition-colors hover:bg-[#3B82F6]/10 !rounded-button whitespace-nowrap cursor-pointer">
+                Learn More
+              </button>
             </div>
-
-            {videoPreview && (
-              <div className="mb-4 relative">
-                <video
-                  src={videoPreview}
-                  className="w-full h-64 object-cover rounded-lg"
-                  controls
-                ></video>
-                <button
-                  onClick={() => setVideoPreview(null)}
-                  className="absolute top-2 right-2 bg-[#111827] p-1 rounded-full cursor-pointer"
-                >
-                  <Image src="cross_white.svg" alt="" width={20} height={20} />
-                </button>
-              </div>
-            )}
-
-            {isUploading && (
-              <div className="mb-4">
-                <div className="h-2 bg-[#111827] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-[#3B82F6] transition-all duration-300"
-                    style={{ width: `${uploadProgress}%` }}
-                  ></div>
-                </div>
-                <p className="text-xs text-[#9CA3AF] mt-1">
-                  Uploading: {uploadProgress}%
-                </p>
-              </div>
-            )}
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={triggerFileUpload}
-                  className="bg-[#111827] hover:bg-[#374151] text-white p-2 rounded-lg flex items-center space-x-2 cursor-pointer !rounded-button whitespace-nowrap"
-                >
-                  <Image src="camera.svg" alt="" width={25} height={20} />
-                  <span className="hidden sm:inline">Upload Video</span>
-                </button>
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  className="hidden"
-                  accept="video/*"
-                  onChange={handleFileUpload}
-                />
-                <span className="text-xs text-[#9CA3AF]">Max 3 min video</span>
-              </div>
-
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={handleClear}
-                  className="hidden sm:inline bg-[#111827] hover:bg-[#374151] text-white px-4 py-2 rounded-lg cursor-pointer !rounded-button whitespace-nowrap"
-                >
-                  Clear
-                </button>
-                <button
-                  onClick={handleAnalyze}
-                  disabled={isAnalyzing}
-                  className={`bg-[#3B82F6] hover:bg-[#2563EB] text-white px-4 py-2 rounded-lg flex items-center space-x-2 cursor-pointer !rounded-button whitespace-nowrap ${
-                    isAnalyzing ? "opacity-75" : ""
-                  }`}
-                >
-                  {isAnalyzing ? (
-                    <>
-                      <Image
-                        src="spin.svg"
-                        alt="loading"
-                        width={20}
-                        height={20}
-                        className="animate-spin w-6 h-6"
-                      />
-                      <span>Analyzing...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Image
-                        src="brain_white.svg"
-                        alt=""
-                        width={20}
-                        height={20}
-                      />
-                      <span>Analyze</span>
-                    </>
-                  )}
-                </button>
-              </div>
+          </div>
+          <div className="md:w-1/3 mt-12 md:mt-0">
+            <div className="relative">
+              <Swiper
+                modules={[Pagination, Autoplay]}
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                loop={true}
+                className="rounded-xl shadow-2xl"
+              >
+                <SwiperSlide>
+                  <img
+                    src="https://readdy.ai/api/search-image?query=Advanced%20medical%20AI%20interface%20showing%20brain%20scan%20analysis%20with%203D%20neural%20network%20visualization%2C%20futuristic%20holographic%20displays%20with%20medical%20data%2C%20clean%20modern%20medical%20technology%20on%20dark%20background&width=600&height=500&seq=8&orientation=landscape"
+                    alt="AI Brain Analysis"
+                    className="w-[400px] h-[400px] object-cover object-top"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src="https://readdy.ai/api/search-image?query=Alzheimers%20disease%20brain%20scan%20with%20molecular%20view%20showing%20protein%20aggregates%2C%20neural%20degeneration%2C%20detailed%203D%20visualization%20of%20brain%20pathology%2C%20medical%20diagnostic%20imaging%20on%20dark%20background%20with%20blue%20highlights&width=400&height=300&seq=2&orientation=landscape"
+                    alt="Alzheimer's Disease"
+                    className="w-[400px] h-[400px] object-cover object-top"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src="https://readdy.ai/api/search-image?query=Futuristic%20medical%20AI%20interface%20with%20brain%20scan%20visualization%2C%20holographic%20medical%20data%20displays%2C%20neural%20network%20patterns%2C%20blue%20glowing%20technology%20elements%20on%20dark%20background%2C%20high%20tech%20medical%20diagnostics&width=600&height=500&seq=1&orientation=landscape"
+                    alt="AI Medical Diagnostics"
+                    className="w-[400px] h-[400px] object-cover object-top"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src="https://readdy.ai/api/search-image?query=Medical%20AI%20dashboard%20displaying%20patient%20diagnostics%20data%2C%20advanced%20medical%20visualization%20tools%2C%20modern%20healthcare%20technology%20interface%20with%20blue%20glowing%20elements%20on%20dark%20background&width=600&height=500&seq=9&orientation=landscape"
+                    alt="AI Diagnostics Dashboard"
+                    className="w-[400px] h-[400px] object-cover object-top"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img
+                    src="https://readdy.ai/api/search-image?query=Futuristic%20medical%20laboratory%20with%20AI-powered%20diagnostic%20equipment%2C%20high%20tech%20medical%20scanning%20devices%2C%20advanced%20healthcare%20technology%20visualization%20on%20dark%20background&width=600&height=500&seq=10&orientation=landscape"
+                    alt="AI Medical Lab"
+                    className="w-[400px] h-[400px] object-cover object-top"
+                  />
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
         </div>
       </div>
+      {/* {children} */}
+
+      {/* Information Cards Section */}
+      <InformationCard />
+      {/* Diagnostic Results Grid */}
+      <DiagnosticCard />
+      {/* Newsletter Subscription */}
+      <NewsLetter />
+
+      {/* Get Started Section */}
+      <div className="bg-[#0D1117] py-20 relative">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url('https://readdy.ai/api/search-image?query=abstract%20digital%20wave%20pattern%20with%20flowing%20lines%20and%20curves%20in%20dark%20blue%20creating%20an%20artistic%20neural%20network%20effect%20perfect%20for%20AI%20interface%20background&width=1920&height=1080&seq=waves1&orientation=landscape')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            mixBlendMode: "soft-light",
+            pointerEvents: "none",
+          }}
+        ></div>
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `url('https://readdy.ai/api/search-image?query=futuristic%20geometric%20wave%20patterns%20with%20subtle%20gradients%20and%20flowing%20lines%20creating%20a%20modern%20tech%20aesthetic%20in%20deep%20blue&width=1920&height=1080&seq=waves2&orientation=landscape')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            mixBlendMode: "overlay",
+            pointerEvents: "none",
+          }}
+        ></div>
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Transform Medical Diagnostics?
+          </h2>
+          <p className="text-[#9CA3AF] max-w-2xl mx-auto mb-10">
+            Join thousands of healthcare professionals already using Bora AI to
+            improve patient outcomes and streamline diagnostic processes.
+          </p>
+          <button className="bg-[#3B82F6] hover:bg-blue-600 px-10 py-4 rounded-lg font-medium text-lg transition-colors shadow-xl !rounded-button whitespace-nowrap cursor-pointer">
+            Get Started Now
+          </button>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-[#0D1117] border-t border-[#1F2937] py-12">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center mb-4 gap-1">
+                <Image src="brain.svg" width={25} height={55} alt="" />
+                <span className="text-xl font-bold">Bora AI</span>
+              </div>
+              <p className="text-[#9CA3AF] mb-4">
+                Advanced AI solutions for medical diagnostics and healthcare
+                optimization.
+              </p>
+              <div className="flex space-x-4">
+                <a
+                  href="#"
+                  className="text-[#9CA3AF] hover:text-[#3B82F6] transition-colors cursor-pointer"
+                >
+                  <i className="fab fa-twitter text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  className="text-[#9CA3AF] hover:text-[#3B82F6] transition-colors cursor-pointer"
+                >
+                  <i className="fab fa-linkedin text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  className="text-[#9CA3AF] hover:text-[#3B82F6] transition-colors cursor-pointer"
+                >
+                  <i className="fab fa-github text-xl"></i>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Partners
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Documentation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Research Papers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Case Studies
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Blog
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Data Processing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                  >
+                    HIPAA Compliance
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-[#1F2937] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center mb-4 md:mb-0">
+              <div className="flex items-center mr-4">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <span className="text-xs text-[#9CA3AF]">
+                  System Status: Online
+                </span>
+              </div>
+              <span className="text-xs text-[#9CA3AF]">Version 1.0.0</span>
+            </div>
+            <p className="text-[#9CA3AF] text-sm">
+              © {currentYear} Bora AI Medical Diagnostics. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-}
+};
+
+export default layout;
