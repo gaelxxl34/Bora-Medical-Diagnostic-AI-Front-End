@@ -17,7 +17,7 @@ const Footer = () => {
               Advanced AI solutions for medical diagnostics and healthcare
               optimization.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a
                 href="#"
                 className="text-[#9CA3AF] hover:text-[#3B82F6] transition-colors cursor-pointer"
@@ -36,7 +36,7 @@ const Footer = () => {
               >
                 <i className="fab fa-github text-xl"></i>
               </a>
-            </div>
+            </div> */}
           </div>
           {/* <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
@@ -51,6 +51,14 @@ const Footer = () => {
                   className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
                 >
                   Documentation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
+                >
+                  Get started
                 </a>
               </li>
             </ul>
