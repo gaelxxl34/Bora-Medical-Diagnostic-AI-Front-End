@@ -6,9 +6,9 @@ type Props = {
 const diagnosticImages: Props[] = [
   {
     src: "https://readdy.ai/api/search-image?query=Alzheimers%20disease%20brain%20scan%20with%20molecular%20view%20showing%20protein%20aggregates%2C%20neural%20degeneration%2C%20detailed%203D%20visualization%20of%20brain%20pathology%2C%20medical%20diagnostic%20imaging%20on%20dark%20background%20with%20blue%20highlights&width=400&height=300&seq=2&orientation=landscape",
-    caption: "Alzheimer's Disease",
+    caption: "Septic encephalopathy",
     desription:
-      "Early detection of protein aggregates and neural degeneration patterns associated with Alzheimer's",
+      "Some microscopic alterations are observed on histological brain sections (often post-mortem)",
   },
   {
     src: "https://readdy.ai/api/search-image?query=Parkinsons%20disease%20brain%20scan%20with%20molecular%20view%20showing%20dopamine%20neuron%20loss%2C%20basal%20ganglia%20dysfunction%2C%20detailed%203D%20visualization%20of%20brain%20pathology%2C%20medical%20diagnostic%20imaging%20on%20dark%20background%20with%20blue%20highlights&width=400&height=300&seq=3&orientation=landscape",
