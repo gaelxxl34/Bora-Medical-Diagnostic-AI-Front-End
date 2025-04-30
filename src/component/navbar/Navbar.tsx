@@ -8,49 +8,46 @@ const Navbar = () => {
 
   const closeMenu = () => setIsMobileMenuOpen(false);
   return (
-    <header className="border-b border-[#1F2937] py-4 px-6">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center g-1">
+    <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 backdrop-blur-md shadow-md">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="flex items-center gap-2">
           <Image src="brain.svg" width={25} height={55} alt="" />
-          {/* <i className="fas fa-brain text-[#3B82F6] text-2xl mr-3"></i> */}
-          <h1 className="text-xl font-semibold">BoraAI Diagnostics</h1>
+          <span className="text-xl font-bold">Bora AI</span>
         </div>
-        <nav className="hidden md:flex space-x-6 items-center">
+        <div className="hidden md:flex space-x-8">
           <Link
             href="/"
-            className="text-white hover:text-[#3B82F6] transition cursor-pointer"
+            className="hover:text-[#3B82F6] transition-colors cursor-pointer"
           >
             Home
           </Link>
           <Link
             href="/documentation"
-            className="text-[#9CA3AF] hover:text-white transition cursor-pointer"
+            className="hover:text-[#3B82F6] transition-colors cursor-pointer"
           >
             Documentation
           </Link>
-
-          {/* <Link
+          <Link
+            href="/register"
+            className="hover:text-[#3B82F6] transition-colors cursor-pointer"
+          >
+            Register
+          </Link>
+          <Link
             href="/register"
             className="px-4 py-0.5 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none cursor-pointer"
           >
-            Register
-          </Link> */}
-        </nav>
-
-        <button
-          className="md:hidden text-white"
+            Get Started
+          </Link>
+        </div>
+        <div
+          className="md:hidden cursor-pointer"
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
           }}
         >
-          <Image
-            src="menu.svg"
-            alt=""
-            width={25}
-            height={25}
-            className="cursor-pointer"
-          />
-        </button>
+          <i className="fas fa-bars text-2xl"></i>
+        </div>
       </div>
 
       {isMobileMenuOpen && (
@@ -78,7 +75,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 };
 
