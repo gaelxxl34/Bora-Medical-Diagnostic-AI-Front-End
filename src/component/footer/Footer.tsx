@@ -5,11 +5,11 @@ import React from "react";
 const Footer = () => {
   const currentYear: number = new Date().getFullYear();
   return (
-    <footer className="bg-[#0D1117] border-t border-[#1F2937] py-12">
+    <footer className="bg-[#0D1117] border-t border-[#1F2937] pt-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center mb-4 gap-1">
+            <div className="flex items-center mb-4 gap-2">
               <Image src="brain.svg" width={25} height={55} alt="" />
               <span className="text-xl font-bold">Bora AI</span>
             </div>
@@ -67,7 +67,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
           </div> */}
         </div>
-        <div className="border-t border-[#1F2937] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-[#1F2937] mt-12 p-5 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
             <div className="flex items-center mr-4">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
