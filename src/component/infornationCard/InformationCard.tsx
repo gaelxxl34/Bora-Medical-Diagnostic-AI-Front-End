@@ -37,16 +37,16 @@ const InformationCard = () => {
           </p>
         </div>
         <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-[#1F2937]/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="text-[#3B82F6] mb-4">
-              <i className="fas fa-dna text-4xl"></i>
+              <i className="fas fa-microscope text-4xl"></i>
             </div>
             <h3 className="text-xl sm:text-xl font-semibold mb-3">
-              Genetic Analysis
+              Pathology Imaging
             </h3>
             <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
-              Process genetic data to identify potential risk factors and
-              hereditary conditions.
+              Powered by microscopic video, the system pushes beyond human
+              limits by analyzing medical imaging with unmatched precision..
             </p>
             <a
               href="#"
@@ -62,16 +62,16 @@ const InformationCard = () => {
               />
             </a>
           </div>
-          <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="bg-[#1F2937]/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="text-[#3B82F6] mb-4">
-              <i className="fas fa-microscope text-4xl"></i>
+              <i className="fas fa-dna text-4xl"></i>
             </div>
             <h3 className="text-xl sm:text-xl font-semibold mb-3">
-              Pathology Imaging
+              Genetic Analysis
             </h3>
             <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
-              Analyze pathology slides and medical imaging with precision beyond
-              human capability.
+              Process genetic data to identify potential risk factors and
+              hereditary conditions.
             </p>
             <a
               href="#"
