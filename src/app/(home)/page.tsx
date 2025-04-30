@@ -10,6 +10,7 @@ import NewsLetter from "@/component/newsletter/NewsLetter";
 import DiagnosticCard from "@/component/diagnosticcard/DiagnosticCard";
 import InformationCard from "@/component/infornationCard/InformationCard";
 import Footer from "@/component/footer/Footer";
+import Navbar from "@/component/navbar/Navbar";
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState("hero");
@@ -35,43 +36,6 @@ const Home = () => {
   return (
     <div className="min-h-screen text-white flex flex-col justify-between relative">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 backdrop-blur-md shadow-md">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Image src="brain.svg" width={25} height={55} alt="" />
-            <span className="text-xl font-bold">Bora AI</span>
-          </div>
-          <div className="hidden md:flex space-x-8">
-            <a
-              href="#"
-              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
-            >
-              Documentation
-            </a>
-            <a
-              href="#"
-              className="hover:text-[#3B82F6] transition-colors cursor-pointer"
-            >
-              Register
-            </a>
-            <Link
-              href="/register"
-              className="px-4 py-0.5 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none cursor-pointer"
-            >
-              Get Started
-            </Link>
-          </div>
-          <div className="md:hidden cursor-pointer">
-            <i className="fas fa-bars text-2xl"></i>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -178,8 +142,6 @@ const Home = () => {
       <InformationCard />
       {/* Diagnostic Results Grid */}
       <DiagnosticCard />
-      {/* Newsletter Subscription */}
-      <NewsLetter />
 
       {/* Get Started Section */}
       <div className="bg-[#0D1117] py-20 relative">
@@ -218,9 +180,6 @@ const Home = () => {
           </button>
         </div>
       </div>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
