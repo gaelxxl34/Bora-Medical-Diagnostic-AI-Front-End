@@ -7,7 +7,7 @@ type Props = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const page = ({ setIsOpen }: Props) => {
+const Page = ({ setIsOpen }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -348,4 +348,4 @@ const page = ({ setIsOpen }: Props) => {
   );
 };
 
-export default page;
+export default Page;
