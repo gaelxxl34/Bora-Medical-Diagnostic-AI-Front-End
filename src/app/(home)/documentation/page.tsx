@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     " By leveraging machine learning and data analysis, it analyzes medical videos, patient data, and historical records to provide timely, reliable diagnostic insights, helping to enhance decision-making and improve patient outcomes",
 };
 
-const page = () => {
+const Page = () => {
   return (
     <div className="relative overflow-hidden flex-1 flex flex-col md:flex-row">
       <div
@@ -96,4 +96,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
