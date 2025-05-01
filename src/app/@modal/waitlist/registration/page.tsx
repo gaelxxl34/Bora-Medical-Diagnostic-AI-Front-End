@@ -3,10 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-type props = {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
-const Registration = ({ setIsOpen }: props) => {
+const Registration = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -113,7 +110,6 @@ const Registration = ({ setIsOpen }: props) => {
 
         // Close modal after success message
         setTimeout(() => {
-          setIsOpen(false);
           // Reset form after closing
           setTimeout(() => {
             setFormData({
