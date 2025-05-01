@@ -120,6 +120,7 @@ const Registration = () => {
               profession: "",
             });
             setIsSuccess(false);
+            router.back();
           }, 300);
         }, 2000);
       } catch (error) {
@@ -132,8 +133,8 @@ const Registration = () => {
   return (
     <div className="fixed w-screen h-screen top-0 left-0 bg-black/80 flex items-center justify-center z-60 modal-overlay transition-opacity duration-300">
       <div
-        className="bg-[#000000] shadow-xl rounded-md max-w-xl w-full mx-4 overflow-hidden transform transition-all duration-300"
-        style={{ border: "0.5px solid gray" }}
+        className="bg-[#111827] shadow-xl rounded-md max-w-xl w-full mx-4 overflow-hidden transform transition-all duration-300"
+        style={{ border: "0.5px solid #404a5f" }}
       >
         {/* Modal Header */}
         <div className="bg-[#3B82F6] text-white px-6 py-4 flex justify-between items-center">
@@ -156,7 +157,7 @@ const Registration = () => {
             <div className="text-center py-8 flex flex-col items-center">
               <div className="text-[#3B82F6] text-5xl mb-4">
                 <Image
-                  src="correct_green.svg"
+                  src="/correct_green.svg"
                   width={60}
                   height={60}
                   alt=""
@@ -323,7 +324,7 @@ const Registration = () => {
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-1">
                     <Image
-                      src="spin.svg"
+                      src="/spin.svg"
                       width={20}
                       height={20}
                       alt="loading"
