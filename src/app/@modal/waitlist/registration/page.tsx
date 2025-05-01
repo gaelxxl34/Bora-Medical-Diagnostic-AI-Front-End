@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-type Props = {
+type props = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const Registration = ({ setIsOpen }: Props) => {
+const Registration = ({ setIsOpen }: props) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
