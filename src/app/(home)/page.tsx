@@ -100,35 +100,35 @@ const Home = () => {
                   <img
                     src="https://readdy.ai/api/search-image?query=Advanced%20medical%20AI%20interface%20showing%20brain%20scan%20analysis%20with%203D%20neural%20network%20visualization%2C%20futuristic%20holographic%20displays%20with%20medical%20data%2C%20clean%20modern%20medical%20technology%20on%20dark%20background&width=600&height=500&seq=8&orientation=landscape"
                     alt="AI Brain Analysis"
-                    className="w-[450px] h-[350px] object-cover object-top"
+                    className="w-[480px] h-[390px] object-cover object-top"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
                     src="https://readdy.ai/api/search-image?query=Alzheimers%20disease%20brain%20scan%20with%20molecular%20view%20showing%20protein%20aggregates%2C%20neural%20degeneration%2C%20detailed%203D%20visualization%20of%20brain%20pathology%2C%20medical%20diagnostic%20imaging%20on%20dark%20background%20with%20blue%20highlights&width=400&height=300&seq=2&orientation=landscape"
                     alt="Alzheimer's Disease"
-                    className="w-[450px] h-[350px] object-cover object-top"
+                    className="w-[480px] h-[390px] object-cover object-top"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
                     src="https://readdy.ai/api/search-image?query=Futuristic%20medical%20AI%20interface%20with%20brain%20scan%20visualization%2C%20holographic%20medical%20data%20displays%2C%20neural%20network%20patterns%2C%20blue%20glowing%20technology%20elements%20on%20dark%20background%2C%20high%20tech%20medical%20diagnostics&width=600&height=500&seq=1&orientation=landscape"
                     alt="AI Medical Diagnostics"
-                    className="w-[450px] h-[350px] object-cover object-top"
+                    className="w-[480px] h-[390px] object-cover object-top"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
                     src="https://readdy.ai/api/search-image?query=Medical%20AI%20dashboard%20displaying%20patient%20diagnostics%20data%2C%20advanced%20medical%20visualization%20tools%2C%20modern%20healthcare%20technology%20interface%20with%20blue%20glowing%20elements%20on%20dark%20background&width=600&height=500&seq=9&orientation=landscape"
                     alt="AI Diagnostics Dashboard"
-                    className="w-[450px] h-[350px] object-cover object-top"
+                    className="w-[480px] h-[390px] object-cover object-top"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
                     src="https://readdy.ai/api/search-image?query=Futuristic%20medical%20laboratory%20with%20AI-powered%20diagnostic%20equipment%2C%20high%20tech%20medical%20scanning%20devices%2C%20advanced%20healthcare%20technology%20visualization%20on%20dark%20background&width=600&height=500&seq=10&orientation=landscape"
                     alt="AI Medical Lab"
-                    className="w-[450px] h-[350px] object-cover object-top"
+                    className="w-[480px] h-[390px] object-cover object-top"
                   />
                 </SwiperSlide>
               </Swiper>
