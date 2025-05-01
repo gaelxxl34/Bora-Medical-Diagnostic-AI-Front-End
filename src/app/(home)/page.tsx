@@ -79,12 +79,16 @@ const Home = () => {
               personalized treatment recommendations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="text-sm sm:text-lg bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
-                Start for free now
-              </button>
-              <button className="text-sm sm:text-lg bg-transparent border border-[#3B82F6] px-8 py-3 rounded-lg font-medium transition-colors hover:bg-[#3B82F6]/10 !rounded-button whitespace-nowrap cursor-pointer">
-                Learn More
-              </button>
+              <Link href="/waitlist/registration">
+                <button className="text-sm sm:text-lg bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
+                  Start for free now
+                </button>
+              </Link>
+              <Link href="/waitlist/registration">
+                <button className="text-sm sm:text-lg bg-transparent border border-[#3B82F6] px-8 py-3 rounded-lg font-medium transition-colors hover:bg-[#3B82F6]/10 !rounded-button whitespace-nowrap cursor-pointer">
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
           <div className="hidden md:w-1/3 md:block mt-12 md:mt-0">
@@ -175,9 +179,11 @@ const Home = () => {
             Join thousands of healthcare professionals already using Bora AI to
             improve patient outcomes and streamline diagnostic processes.
           </p>
-          <button className="text-sm sm:text-lg bg-[#3B82F6] hover:bg-blue-600 px-10 py-4 rounded-lg font-medium transition-colors shadow-xl !rounded-button whitespace-nowrap cursor-pointer">
-            Get Started Now
-          </button>
+          <Link href="/waitlist/registration">
+            <button className="text-sm sm:text-lg bg-[#3B82F6] hover:bg-blue-600 px-10 py-4 rounded-lg font-medium transition-colors shadow-xl !rounded-button whitespace-nowrap cursor-pointer">
+              Get Started Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>
