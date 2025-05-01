@@ -62,7 +62,7 @@ const Page = () => {
         </div>
 
         <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg">
-          <h2 className="text-xl font-semibold mb-4 flex items-center">
+          <h2 className="text-xl sm-md font-semibold mb-4 flex items-center">
             <Image
               src="privacy.svg"
               alt=""
@@ -72,7 +72,7 @@ const Page = () => {
             />
             Privacy & Security
           </h2>
-          <p className="text-[#9CA3AF] mb-4">
+          <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
             All data is processed with strict confidentiality. Your uploads and
             analyses are encrypted and automatically deleted after 30 days
             unless saved to your account.

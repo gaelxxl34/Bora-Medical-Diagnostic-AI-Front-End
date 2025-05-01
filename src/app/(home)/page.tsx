@@ -66,15 +66,19 @@ const Home = () => {
         </div>
         <div className="container mx-auto px-[50px] py-10 sm:py-6 lg:py-24 flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 md:pr-10 z-10">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Welcome to Bora AI Medical Diagnostics
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Welcome to
+              <span className="bg-gradient-to-r from-blue-500 to-rose-500 bg-clip-text text-transparent font-bold mx-3">
+                BORA AI
+              </span>
+              Medical Diagnostics
             </h1>
             <p className="text-xl text-[#9CA3AF] mb-8 max-w-lg">
               Revolutionizing healthcare with advanced AI algorithms. Our
               cutting-edge technology provides accurate diagnostics and
               personalized treatment recommendations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex sm:flex-row gap-4">
               <Link href="/waitlist/registration">
                 <button className="text-sm sm:text-lg bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
                   Start for free now
