@@ -28,13 +28,13 @@ const Navbar = () => {
             Documentation
           </Link>
           <Link
-            href="/register"
+            href="/waitlist/registration"
             className="hover:text-[#3B82F6] transition-colors cursor-pointer"
           >
             Register
           </Link>
           <Link
-            href="/register"
+            href="/waitlist/registration"
             className="px-4 py-0.5 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white focus:outline-none cursor-pointer"
           >
             Get Started
