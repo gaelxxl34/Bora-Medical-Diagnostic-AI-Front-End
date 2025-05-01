@@ -1,4 +1,5 @@
 import diagnosticImages from "@/data/diagnosticImages";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -39,9 +40,11 @@ const DiagnosticCard = () => {
               key={i}
             >
               <div className="h-48 overflow-hidden">
-                <img
+                <Image
                   src={data.src}
                   alt={data.caption}
+                  height={300}
+                  width={300}
                   className="w-full h-full cursor-pointer object-cover object-top transition-transform duration-300 ease-in-out hover:scale-110"
                 />
               </div>
@@ -51,7 +54,7 @@ const DiagnosticCard = () => {
                   {data.desription}
                 </p>
                 <Link href="/waitlist/registration">
-                  <button className="text-sm sm:text-lg  bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
+                  <button className="text-base  bg-[#3B82F6] hover:bg-blue-600 px-5 py-2 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
                     view detail
                   </button>
                 </Link>
