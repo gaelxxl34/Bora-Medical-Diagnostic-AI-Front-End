@@ -10,8 +10,14 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className="flex-1 flex flex-col md:flex-row">
-      <div className="flex-1 p-4 md:p-8 max-w-4xl mx-auto w-full">
+    <div className="relative overflow-hidden flex-1 flex flex-col md:flex-row">
+      <div
+        className="absolute w-screen inset-0 bg-cover bg-center z-0 blur-[200px]"
+        style={{
+          backgroundImage: `url("bg1.png")`,
+        }}
+      />
+      <div className="relative flex-1 p-4 md:p-8 max-w-4xl mx-auto w-full">
         <div className="bg-[#1F2937] rounded-xl p-6 mb-6 shadow-lg">
           <h2 className="text-xl font-semibold mb-4 flex items-center">
             <Image
