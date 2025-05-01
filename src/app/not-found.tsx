@@ -6,7 +6,7 @@ const NotFound = () => {
   const currentYear: number = new Date().getFullYear();
 
   return (
-    <div className="min-h-screen bg-[#0D1117] text-white flex flex-col justify-between relative">
+    <div className="min-h-screen z-1 bg-[#0D1117] text-white flex flex-col justify-between relative">
       <Navbar />
       <div className="text-center gap-5">
         {/* <div className="text-white-500 text-5xl">
