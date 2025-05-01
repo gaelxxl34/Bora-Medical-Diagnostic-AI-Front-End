@@ -6,7 +6,7 @@ import React, { useState } from "react";
 type Props = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const Page = ({ setIsOpen }: Props) => {
+const Registration = ({ setIsOpen }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -21,14 +21,14 @@ const Page = ({ setIsOpen }: Props) => {
     firstName: "",
     lastName: "",
     email: "",
-    gender: "",
+    // gender: "",
     profession: "",
   });
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    gender: "",
+    // gender: "",
     profession: "",
   });
 
@@ -46,7 +46,7 @@ const Page = ({ setIsOpen }: Props) => {
       firstName: "",
       lastName: "",
       email: "",
-      gender: "",
+      // gender: "",
       profession: "",
     };
     if (!formData.firstName.trim()) {
@@ -64,10 +64,10 @@ const Page = ({ setIsOpen }: Props) => {
       newErrors.email = "Email address is invalid";
       valid = false;
     }
-    if (!formData.gender) {
-      newErrors.gender = "Please select a gender";
-      valid = false;
-    }
+    // if (!formData.gender) {
+    //   newErrors.gender = "Please select a gender";
+    //   valid = false;
+    // }
     if (!formData.profession) {
       newErrors.profession = "Please select a profession";
       valid = false;
@@ -104,7 +104,7 @@ const Page = ({ setIsOpen }: Props) => {
         const formObject = {
           firstName: formData.firstName,
           lastName: formData.lastName,
-          gender: formData.gender,
+          // gender: formData.gender,
           profession: formData.profession,
           email: formData.email,
         };
@@ -120,7 +120,7 @@ const Page = ({ setIsOpen }: Props) => {
               firstName: "",
               lastName: "",
               email: "",
-              gender: "",
+              // gender: "",
               profession: "",
             });
             setIsSuccess(false);
@@ -347,4 +347,4 @@ const Page = ({ setIsOpen }: Props) => {
   );
 };
 
-export default Page;
+export default Registration;
