@@ -40,14 +40,26 @@ const Navbar = () => {
             Get Started
           </Link>
         </div>
-        <div
-          className="md:hidden cursor-pointer"
-          onClick={() => {
-            setIsMobileMenuOpen(!isMobileMenuOpen);
-          }}
-        >
-          <i className="fas fa-bars text-2xl"></i>
-        </div>
+
+        {isMobileMenuOpen ? (
+          <div
+            className="md:hidden cursor-pointer"
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+          >
+            <i className="fa-solid fa-xmark text-2xl"></i>{" "}
+          </div>
+        ) : (
+          <div
+            className="md:hidden cursor-pointer"
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+          >
+            <i className="fas fa-bars text-2xl"></i>
+          </div>
+        )}
       </div>
 
       {isMobileMenuOpen && (
@@ -69,9 +81,19 @@ const Navbar = () => {
                 Documentation
               </span>
             </Link>
-            <button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-4 py-2 rounded-lg w-full !rounded-button whitespace-nowrap">
-              Get started
-            </button>
+            <Link
+              href="/waitlist/registration"
+              className="text-[#9CA3AF] hover:text-white transition"
+            >
+              <span onClick={closeMenu} className="block p-2">
+                Register
+              </span>
+            </Link>
+            <Link href="waitlist/registration">
+              <button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-4 py-2 rounded-lg w-full !rounded-button whitespace-nowrap">
+                Get started
+              </button>
+            </Link>
           </div>
         </div>
       )}
