@@ -36,15 +36,15 @@ const Home = () => {
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center z-0 bg-animated"
-          style={{
-            backgroundImage: `url("bg2.png")`,
-          }}
-        />
-        <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage: `url("bg1.png")`,
+          }}
+        />
+        <div
+          className="hidden md:block absolute inset-0 bg-cover bg-center z-0 bg-animated"
+          style={{
+            backgroundImage: `url("bg2.png")`,
           }}
         />
         <div

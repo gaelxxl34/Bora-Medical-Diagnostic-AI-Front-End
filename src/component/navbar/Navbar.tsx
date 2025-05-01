@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const closeMenu = () => setIsMobileMenuOpen(false);
   return (
-    <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 backdrop-blur-md shadow-md">
+    <nav className="sticky top-0 z-50 border-b border-blue-300/50 bg-black/60 backdrop-blur-md shadow-lg">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Image src="/brain.svg" width={25} height={55} alt="" />
