@@ -3,14 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import NewsLetter from "@/component/newsletter/NewsLetter";
 import DiagnosticCard from "@/component/diagnosticcard/DiagnosticCard";
 import InformationCard from "@/component/infornationCard/InformationCard";
-import Footer from "@/component/footer/Footer";
-import Navbar from "@/component/navbar/Navbar";
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState("hero");
