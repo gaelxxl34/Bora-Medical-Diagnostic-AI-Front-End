@@ -1,4 +1,5 @@
 import diagnosticImages from "@/data/diagnosticImages";
+import Link from "next/link";
 import React from "react";
 
 const DiagnosticCard = () => {
@@ -49,9 +50,11 @@ const DiagnosticCard = () => {
                 <p className="text-sm sm:text-base text-[#9CA3AF] mb-4">
                   {data.desription}
                 </p>
-                <button className="text-sm sm:text-lg  bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
-                  view detail
-                </button>
+                <Link href="/waitlist/registration">
+                  <button className="text-sm sm:text-lg  bg-[#3B82F6] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg !rounded-button whitespace-nowrap cursor-pointer">
+                    view detail
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

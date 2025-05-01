@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const InformationCard = () => {
@@ -48,8 +49,8 @@ const InformationCard = () => {
               Powered by microscopic video, the system pushes beyond human
               limits by analyzing medical imaging with unmatched precision..
             </p>
-            <a
-              href="#"
+            <Link
+              href="/waitlist/registration"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
               Learn more{" "}
@@ -60,7 +61,7 @@ const InformationCard = () => {
                 width={15}
                 className="ml-1"
               />
-            </a>
+            </Link>
           </div>
           <div className="bg-[#1F2937]/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="text-[#3B82F6] mb-4">
@@ -73,8 +74,8 @@ const InformationCard = () => {
               Process genetic data to identify potential risk factors and
               hereditary conditions.
             </p>
-            <a
-              href="#"
+            <Link
+              href="/waitlist/registration"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
               Learn more{" "}
@@ -85,7 +86,7 @@ const InformationCard = () => {
                 width={15}
                 className="ml-1"
               />
-            </a>
+            </Link>
           </div>
           <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="text-[#3B82F6] mb-4">
@@ -96,8 +97,8 @@ const InformationCard = () => {
               Continuous analysis of patient vitals to detect subtle changes and
               predict complications.
             </p>
-            <a
-              href="#"
+            <Link
+              href="/waitlist/registration"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
               Learn more{" "}
@@ -108,7 +109,7 @@ const InformationCard = () => {
                 width={15}
                 className="ml-1"
               />
-            </a>
+            </Link>
           </div>
           <div className="bg-[#1F2937] rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div className="text-[#3B82F6] mb-4">
@@ -121,8 +122,8 @@ const InformationCard = () => {
               Personalized treatment recommendations based on patient-specific
               data and outcomes.
             </p>
-            <a
-              href="#"
+            <Link
+              href="/waitlist/registration"
               className="text-[#3B82F6] hover:underline flex items-center cursor-pointer"
             >
               Learn more{" "}
@@ -133,7 +134,7 @@ const InformationCard = () => {
                 width={15}
                 className="ml-1"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
