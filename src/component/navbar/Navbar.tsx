@@ -11,8 +11,8 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 border-b border-blue-300/10 bg-black/60 backdrop-blur-md shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <Image src="brain.svg" width={25} height={55} alt="" />
-          <span className="text-xl font-bold">Bora AI</span>
+          <Image src="/brain.svg" width={25} height={55} alt="" />
+          <span className="text-xl font-bold text-white">BORA AI</span>
         </div>
         <div className="hidden md:flex space-x-8">
           <Link
@@ -43,7 +43,7 @@ const Navbar = () => {
 
         {isMobileMenuOpen ? (
           <div
-            className="md:hidden cursor-pointer"
+            className="md:hidden cursor-pointer text-white"
             onClick={() => {
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
@@ -52,7 +52,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div
-            className="md:hidden cursor-pointer"
+            className="md:hidden cursor-pointer text-white"
             onClick={() => {
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
