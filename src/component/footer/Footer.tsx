@@ -5,8 +5,17 @@ import React from "react";
 const Footer = () => {
   const currentYear: number = new Date().getFullYear();
   return (
-    <footer className="bg-[#0D1117] border-t border-[#1F2937] pt-12">
-      <div className="container mx-auto px-6">
+    <footer className="relative bg-[#0D1117] border-t border-[#1F2937] pt-12">
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d1d5db' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: "20px 20px",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/80" />
+      </div>
+      <div className="relative container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4 gap-2">
