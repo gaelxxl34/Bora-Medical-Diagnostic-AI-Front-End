@@ -3,7 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ['readdy.ai'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'readdy.ai',
+      },
+    ],
   },
 };
 
