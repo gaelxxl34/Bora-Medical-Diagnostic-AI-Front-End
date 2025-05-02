@@ -14,7 +14,7 @@ const Navbar = () => {
           <Image src="/brain.svg" width={25} height={55} alt="" />
           <span className="text-xl font-bold text-white">BORA AI</span>
         </div>
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-8 text-[#9CA3AF]">
           <Link
             href="/"
             className="hover:text-[#3B82F6] transition-colors cursor-pointer"
