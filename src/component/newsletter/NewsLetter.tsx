@@ -26,7 +26,7 @@ const NewsLetter = () => {
   return (
     <div className="relative overflow-hidden py-16 bg-transparent">
       <div
-        className="absolute inset-0 bg-cover bg-center z-1 filter blur-[140px]"
+        className="hidden md:block absolute inset-0 bg-cover bg-center z-1 filter blur-[140px]"
         style={{
           backgroundImage: `url("bg3.png")`,
         }}
