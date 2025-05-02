@@ -1,7 +1,6 @@
 import diagnosticImages from "@/data/diagnosticImages";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const DiagnosticCard = () => {
   return (
