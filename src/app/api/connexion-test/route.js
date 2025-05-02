@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"; // Important!
 export async function GET() {
   try {
     // Try to connect to the database
-    const db = await connectToDB();
+    await connectToDB();
     // If successful, return a success message
     return NextResponse.json({ message: "Connected to MongoDB successfully!" });
   } catch (error) {
@@ -22,8 +22,8 @@ export async function GET() {
   }
 
   // Fallback response in case no error occurs but no valid response has been returned.
-  return NextResponse.json(
-    { message: "Unexpected behavior." },
-    { status: 500 }
-  );
+  // return NextResponse.json(
+  //   { message: "Unexpected behavior." },
+  //   { status: 500 }
+  // );
 }
