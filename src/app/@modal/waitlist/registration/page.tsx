@@ -18,14 +18,12 @@ const Registration = () => {
     firstName: "",
     lastName: "",
     email: "",
-    // gender: "",
     profession: "",
   });
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    // gender: "",
     profession: "",
   });
 
@@ -88,42 +86,53 @@ const Registration = () => {
       });
     }
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (validateForm()) {
       setIsSubmitting(true);
+
+      const { firstName, lastName, email, profession } = formData;
       try {
         // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        // Success
-        setIsSuccess(true);
-        // Convert FormData to an object
-        const formObject = {
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          // gender: formData.gender,
-          profession: formData.profession,
-          email: formData.email,
-        };
+        // await new Promise((resolve) => setTimeout(resolve, 1500));
 
-        localStorage.setItem("userInfo", JSON.stringify(formObject));
+        const response = await fetch("/api/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstname: firstName,
+            lastname: lastName,
+            email,
+            profession,
+          }),
+        });
 
-        // Close modal after success message
-        setTimeout(() => {
-          // Reset form after closing
+        const data = await response.json();
+
+        if (response.ok) {
+          setIsSuccess(true);
+          // Close modal after success message
           setTimeout(() => {
-            setFormData({
-              firstName: "",
-              lastName: "",
-              email: "",
-              // gender: "",
-              profession: "",
-            });
-            setIsSuccess(false);
-            router.back();
-          }, 300);
-        }, 2000);
+            setTimeout(() => {
+              setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                profession: "",
+              });
+              setIsSuccess(false);
+              router.back();
+            }, 300);
+          }, 2000);
+        } else {
+          console.log(data.message || "Failed to create user");
+        }
       } catch (error) {
+        console.log(error);
         console.error("Error submitting form:", error);
       } finally {
         setIsSubmitting(false);
